@@ -22,6 +22,7 @@
     "@apollo/server": "^5.0.0",
     "@prisma/client": "^6.14.0",
     "express": "^5.1.0",
-    "graphql": "^16.11.0"
+    "graphql": "^16.11.0",
+    "graphql-http": "^1.22.4"
   }
 }
