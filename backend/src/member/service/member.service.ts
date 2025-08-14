@@ -3,6 +3,10 @@ import { prisma } from "../../prismaClient";
 import { Member, MemberInput } from "../types/member.types";
 import { ulid } from "ulid";
 
+/**
+ * addMember
+ * DBにレコード追加する
+ */
 export async function addMember(input: MemberInput): Promise<Member> {
   const newId = ulid();
   const newMember = await prisma.members.create({
@@ -23,6 +27,10 @@ export async function addMember(input: MemberInput): Promise<Member> {
   return convertObj(newMember);
 }
 
+/**
+ * convertObj
+ * DBスキーマではなく、Member型に変換する
+ */
 const convertObj = (obj: Members): Member => {
   const favoriteList = [
     obj.favorite_1 ?? "",
