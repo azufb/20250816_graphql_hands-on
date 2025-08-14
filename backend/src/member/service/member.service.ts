@@ -60,17 +60,9 @@ export async function addMember(input: MemberInput): Promise<Member> {
  * DBスキーマではなく、Member型に変換する
  */
 const convertObj = (obj: Members): Member => {
-  const favoriteList = [
-    obj.favorite_1 ?? "",
-    obj.favorite_2 ?? "",
-    obj.favorite_3 ?? "",
-  ];
+  const favoriteList = [obj.favorite_1, obj.favorite_2, obj.favorite_3];
 
-  const dislikeList = [
-    obj.dislike_1 ?? "",
-    obj.dislike_2 ?? "",
-    obj.dislike_3 ?? "",
-  ];
+  const dislikeList = [obj.dislike_1, obj.dislike_2, obj.dislike_3];
 
   return {
     id: obj.id,

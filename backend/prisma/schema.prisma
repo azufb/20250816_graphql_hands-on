@@ -14,11 +14,11 @@ model members {
   name       String
   age        Int
   comment    String
-  favorite_1 String?
-  favorite_2 String?
-  favorite_3 String?
-  dislike_1  String?
-  dislike_2  String?
-  dislike_3  String?
+  favorite_1 String
+  favorite_2 String
+  favorite_3 String
+  dislike_1  String
+  dislike_2  String
+  dislike_3  String
   created_at DateTime @default(now()) @db.Timestamptz(6)
 }
