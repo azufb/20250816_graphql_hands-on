@@ -1,15 +1,14 @@
 // MutationのResolverを実装する
 import { Member, MemberInput } from "../types/member.types";
+import * as MemberService from "../service/member.service";
 
 /**
  * addMember
  * メンバー追加処理
  */
-export function addMember(input: MemberInput): Member {
-  return {
-    id: "aaa",
-    ...input,
-    favorite: ["aaa"],
-    dislike: ["dislike"],
-  };
+export async function addMember(input: MemberInput): Promise<Member> {
+  // service呼び出し
+  const result = await MemberService.addMember(input);
+
+  return result;
 }
