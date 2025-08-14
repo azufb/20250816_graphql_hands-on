@@ -1,27 +1,35 @@
-import { ApolloServer } from "@apollo/server";
-import express, { Request, Response } from "express";
-import { buildSchema } from "graphql";
-import { createHandler } from "graphql-http";
+import { ApolloServer, BaseContext } from "@apollo/server";
+import express from "express";
+import { expressMiddleware } from "@as-integrations/express5";
+import cors from "cors";
 
 const app = express();
 const port = 3000;
 
-const schema = buildSchema(`type Query { hello: String } `);
+const typeDefs = `type Query { hello: String } `;
 
-const resolver = {
-  hello() {
-    return "Hello world!";
+const resolvers = {
+  Query: {
+    hello: () => {
+      return "Hello world!";
+    },
   },
 };
 
+const server = new ApolloServer<BaseContext>({
+  typeDefs,
+  resolvers,
+});
+
+await server.start();
+
 app.use(
-  "/graphql",
-  createHandler({
-    schema,
-    rootValue: resolver,
-  })
+  "/graphQL",
+  cors<cors.CorsRequest>(),
+  express.json(),
+  expressMiddleware(server)
 );
 
 app.listen(port, () => {
-  console.log(`Example app listening on http://localhost:3000/`);
+  console.log(`🚀 Server ready at http://localhost:${port}/graphQL`);
 });
