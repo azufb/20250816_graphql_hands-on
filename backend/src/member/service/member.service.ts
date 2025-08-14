@@ -4,6 +4,30 @@ import { Member, MemberInput } from "../types/member.types";
 import { ulid } from "ulid";
 
 /**
+ * fetchMemberList
+ * DBに格納されているメンバーのレコードを全件取得してくる
+ */
+export async function fetchMemberList(): Promise<Member[]> {
+  const list = await prisma.members.findMany();
+
+  return list.map((item) => convertObj(item));
+}
+
+export async function fetchMemberInfoById(id: string): Promise<Member | null> {
+  const member = await prisma.members.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  if (!member) {
+    return null;
+  }
+
+  return convertObj(member);
+}
+
+/**
  * addMember
  * DBにレコード追加する
  */
