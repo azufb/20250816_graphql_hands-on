@@ -10,7 +10,6 @@ export const memberTypeDefs = `#graphql
   }
 
   type MemberInput {
-    id: String!
     name: String!
     age: Int!
     comment: String!
