@@ -1,35 +1,28 @@
 import { ApolloServer, BaseContext } from "@apollo/server";
 import express from "express";
 import { expressMiddleware } from "@as-integrations/express5";
-import cors from "cors";
+import { memberTypeDefs } from "./member/schema/member.schema.js";
+import { memberResolvers } from "./member/resolvers/index.resolver.js";
 
 const app = express();
 const port = 3000;
 
-const typeDefs = `type Query { hello: String } `;
+async function startServer() {
+  const server = new ApolloServer<BaseContext>({
+    typeDefs: memberTypeDefs,
+    resolvers: memberResolvers,
+  });
+  await server.start();
 
-const resolvers = {
-  Query: {
-    hello: () => {
-      return "Hello world!";
-    },
-  },
-};
+  // Express との統合
+  app.use("/graphql", expressMiddleware(server));
 
-const server = new ApolloServer<BaseContext>({
-  typeDefs,
-  resolvers,
-});
+  app.listen(port, () => {
+    console.log(`🚀 Server ready at http://localhost:${port}/graphql`);
+  });
+}
 
-await server.start();
-
-app.use(
-  "/graphQL",
-  cors<cors.CorsRequest>(),
-  express.json(),
-  expressMiddleware(server)
-);
-
-app.listen(port, () => {
-  console.log(`🚀 Server ready at http://localhost:${port}/graphQL`);
+// エラーキャッチも忘れずに
+startServer().catch((err) => {
+  console.error("Failed to start server:", err);
 });
