@@ -9,7 +9,7 @@ export const memberTypeDefs = `#graphql
     dislike: [String]
   }
 
-  type MemberInput {
+  input MemberInput {
     name: String!
     age: Int!
     comment: String!
@@ -19,6 +19,10 @@ export const memberTypeDefs = `#graphql
     dislike1: String
     dislike2: String
     dislike3: String
+  }
+
+  type Query {
+    hello: String
   }
 
   type Mutation {
