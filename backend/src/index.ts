@@ -8,6 +8,9 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 
+/**
+ * GraphQLサーバ起動
+ */
 async function startServer() {
   const server = new ApolloServer<BaseContext>({
     typeDefs: memberTypeDefs,
