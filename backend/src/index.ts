@@ -6,6 +6,7 @@ import { memberResolvers } from "./member/resolvers/index.resolver.js";
 
 const app = express();
 const port = 3000;
+app.use(express.json());
 
 async function startServer() {
   const server = new ApolloServer<BaseContext>({
