@@ -1,3 +1,12 @@
+export interface Member {
+  id: string;
+  name: string;
+  age: number;
+  comment: string;
+  favorite: string[];
+  dislike: string[];
+}
+
 export interface MemberInput {
   name: string;
   age: number;
