@@ -1,8 +1,8 @@
 import { ApolloServer, BaseContext } from "@apollo/server";
 import express from "express";
 import { expressMiddleware } from "@as-integrations/express5";
-import { memberTypeDefs } from "./member/schema/member.schema.js";
-import { memberResolvers } from "./member/resolvers/index.resolver.js";
+import { memberTypeDefs } from "./member/schema/member.schema";
+import { memberResolvers } from "./member/resolvers/index.resolver";
 
 const app = express();
 const port = 3000;
