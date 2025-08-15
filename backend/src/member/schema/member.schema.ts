@@ -5,8 +5,8 @@ export const memberTypeDefs = `#graphql
     name: String!
     age: Int!
     comment: String!
-    favorite: [String]
-    dislike: [String]
+    favorite: [String!]
+    dislike: [String!]
   }
 
   input MemberInput {
@@ -22,7 +22,7 @@ export const memberTypeDefs = `#graphql
   }
 
   type Query {
-    fetchMemberList: [Member]!
+    fetchMemberList: [Member!]!
     fetchMemberInfoById(id: String!): Member
   }
 

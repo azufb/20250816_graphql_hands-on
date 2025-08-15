@@ -21,8 +21,8 @@ export type Member = {
   __typename?: 'Member';
   age: Scalars['Int']['output'];
   comment: Scalars['String']['output'];
-  dislike?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  favorite?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  dislike?: Maybe<Array<Scalars['String']['output']>>;
+  favorite?: Maybe<Array<Scalars['String']['output']>>;
   id: Scalars['String']['output'];
   name: Scalars['String']['output'];
 };
@@ -52,7 +52,7 @@ export type MutationAddMemberArgs = {
 export type Query = {
   __typename?: 'Query';
   fetchMemberInfoById?: Maybe<Member>;
-  fetchMemberList: Array<Maybe<Member>>;
+  fetchMemberList: Array<Member>;
 };
 
 
@@ -63,7 +63,7 @@ export type QueryFetchMemberInfoByIdArgs = {
 export type FetchMemberListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FetchMemberListQuery = { __typename?: 'Query', fetchMemberList: Array<{ __typename?: 'Member', id: string, name: string } | null> };
+export type FetchMemberListQuery = { __typename?: 'Query', fetchMemberList: Array<{ __typename?: 'Member', id: string, name: string }> };
 
 
 export const FetchMemberListDocument = gql`
