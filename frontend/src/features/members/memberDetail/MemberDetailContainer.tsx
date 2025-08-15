@@ -5,7 +5,6 @@ interface MemberDetailContainerProps {
 }
 
 export const MemberDetailContainer = ({}: MemberDetailContainerProps) => {
-  let data = null;
   // const { data, loading, error } = useFetchMemberInfoByIdQuery({
   //   variables: {
   //     id,
