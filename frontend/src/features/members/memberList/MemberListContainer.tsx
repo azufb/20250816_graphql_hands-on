@@ -3,11 +3,7 @@ import { MemberListPresenter } from "./MemberListPresenter";
 
 export const MemberListContainer = () => {
   const navigate = useNavigate();
-  // const { data, error } = useFetchMemberListQuery();
-
-  // if (error) {
-  //   throw error.message;
-  // }
+  // TODO：Query呼び出し
 
   /**
    * メンバー詳細画面に遷移

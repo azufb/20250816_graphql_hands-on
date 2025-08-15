@@ -5,19 +5,7 @@ interface MemberDetailContainerProps {
 }
 
 export const MemberDetailContainer = ({}: MemberDetailContainerProps) => {
-  // const { data, loading, error } = useFetchMemberInfoByIdQuery({
-  //   variables: {
-  //     id,
-  //   },
-  // });
-
-  // if (error) {
-  //   throw error.message;
-  // }
-
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
+  // TODO：Query呼び出し
 
   return <MemberDetailPresenter />;
 };
