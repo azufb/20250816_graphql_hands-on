@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import type { FetchMemberListQuery } from "../../../gql/generated/graphql";
 
 interface MemberListPresenterProps {
@@ -10,24 +11,54 @@ export const MemberListPresenter = ({
   onClickRow,
 }: MemberListPresenterProps) => {
   return (
-    <>
-      <h2>一覧</h2>
-      <table>
+    <TableWrapper>
+      <Table>
         <thead>
           <tr>
-            <th>名前</th>
-            <th />
+            <Th>No.</Th>
+            <Th>名前</Th>
           </tr>
         </thead>
         <tbody>
           {memberList.map((member, index) => (
-            <tr key={member.id} onClick={() => onClickRow(member.id)}>
-              <td>{index + 1}</td>
-              <td>{member.name}</td>
-            </tr>
+            <Tr key={member.id} onClick={() => onClickRow(member.id)}>
+              <Td>{index + 1}</Td>
+              <Td>{member.name}</Td>
+            </Tr>
           ))}
         </tbody>
-      </table>
-    </>
+      </Table>
+    </TableWrapper>
   );
 };
+
+const TableWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+`;
+
+const Table = styled.table`
+  width: 600px;
+  max-width: 90%;
+  border-collapse: collapse;
+`;
+
+const Th = styled.th`
+  text-align: left;
+  padding: 8px;
+  border-bottom: 2px solid #ccc;
+`;
+
+const Td = styled.td`
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+`;
+
+const Tr = styled.tr`
+  cursor: pointer;
+  &:hover {
+    background-color: #f5f5f5;
+  }
+`;
