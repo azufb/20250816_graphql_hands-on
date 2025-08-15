@@ -1,0 +1,20 @@
+# メンバー詳細取得のスキーマ
+
+# メンバー
+type Member {
+  id: String!
+  name: String!
+  age: Int!
+  comment: String!
+  favorite: [String!]!
+  dislike: [String!]!
+}
+
+# メンバー詳細取得のQueryを呼ぶ
+query FetchMemberInfoById($id: String!) {
+  fetchMemberInfoById(id: $id) {
+    name
+    age
+    comment
+  }
+}

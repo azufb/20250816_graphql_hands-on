@@ -14,6 +14,7 @@ export const MemberListContainer = () => {
    * メンバー詳細画面に遷移
    */
   const handleClickRow = (id: string) => {
+    console.log(id);
     navigate(`/members/${id}`);
   };
 

@@ -60,12 +60,61 @@ export type QueryFetchMemberInfoByIdArgs = {
   id: Scalars['String']['input'];
 };
 
+export type FetchMemberInfoByIdQueryVariables = Exact<{
+  id: Scalars['String']['input'];
+}>;
+
+
+export type FetchMemberInfoByIdQuery = { __typename?: 'Query', fetchMemberInfoById?: { __typename?: 'Member', name: string, age: number, comment: string } | null };
+
 export type FetchMemberListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type FetchMemberListQuery = { __typename?: 'Query', fetchMemberList: Array<{ __typename?: 'Member', id: string, name: string }> };
 
 
+export const FetchMemberInfoByIdDocument = gql`
+    query FetchMemberInfoById($id: String!) {
+  fetchMemberInfoById(id: $id) {
+    name
+    age
+    comment
+  }
+}
+    `;
+
+/**
+ * __useFetchMemberInfoByIdQuery__
+ *
+ * To run a query within a React component, call `useFetchMemberInfoByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFetchMemberInfoByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFetchMemberInfoByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useFetchMemberInfoByIdQuery(baseOptions: Apollo.QueryHookOptions<FetchMemberInfoByIdQuery, FetchMemberInfoByIdQueryVariables> & ({ variables: FetchMemberInfoByIdQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FetchMemberInfoByIdQuery, FetchMemberInfoByIdQueryVariables>(FetchMemberInfoByIdDocument, options);
+      }
+export function useFetchMemberInfoByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FetchMemberInfoByIdQuery, FetchMemberInfoByIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FetchMemberInfoByIdQuery, FetchMemberInfoByIdQueryVariables>(FetchMemberInfoByIdDocument, options);
+        }
+export function useFetchMemberInfoByIdSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<FetchMemberInfoByIdQuery, FetchMemberInfoByIdQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<FetchMemberInfoByIdQuery, FetchMemberInfoByIdQueryVariables>(FetchMemberInfoByIdDocument, options);
+        }
+export type FetchMemberInfoByIdQueryHookResult = ReturnType<typeof useFetchMemberInfoByIdQuery>;
+export type FetchMemberInfoByIdLazyQueryHookResult = ReturnType<typeof useFetchMemberInfoByIdLazyQuery>;
+export type FetchMemberInfoByIdSuspenseQueryHookResult = ReturnType<typeof useFetchMemberInfoByIdSuspenseQuery>;
+export type FetchMemberInfoByIdQueryResult = Apollo.QueryResult<FetchMemberInfoByIdQuery, FetchMemberInfoByIdQueryVariables>;
 export const FetchMemberListDocument = gql`
     query FetchMemberList {
   fetchMemberList {
