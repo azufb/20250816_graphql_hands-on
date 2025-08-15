@@ -1,5 +1,4 @@
 import { ApolloProvider } from "@apollo/client";
-import "./App.css";
 import { AppRoutes } from "./routes";
 import { apolloClient } from "./apolloClient";
 
