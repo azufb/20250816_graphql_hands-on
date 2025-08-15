@@ -11,10 +11,9 @@ type Member {
 }
 
 # メンバー詳細取得のQueryを呼ぶ
-query FetchMemberInfoById($id: String!) {
-  fetchMemberInfoById(id: $id) {
-    name
-    age
-    comment
-  }
-}
+# query FetchMemberInfoById($id: String!) {
+#   fetchMemberInfoById(id: $id) {
+#     name
+#     age
+#   }
+# }
