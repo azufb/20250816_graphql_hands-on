@@ -22,11 +22,8 @@ export const memberTypeDefs = `#graphql
   }
 
   type Query {
-    fetchMemberList: [Member!]!
-    fetchMemberInfoById(id: String!): Member
-  }
-
-  type Mutation {
-    addMember(input: MemberInput!): Member!
+    hello: String!
+    # fetchMemberList: [Member!]!
+    # fetchMemberInfoById(id: String!): Member
   }
 `;

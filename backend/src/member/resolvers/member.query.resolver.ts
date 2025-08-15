@@ -4,12 +4,13 @@ import { Member } from "../types/member.types";
 /**
  * fetchMemberList
  * メンバー一覧取得のQuery
+ *
+ * // TODO：service呼び出し実装後、返り値の型修正する
  */
-export async function fetchMemberList(): Promise<Member[]> {
-  // service呼び出し
-  const result = await MemberService.fetchMemberList();
+export async function fetchMemberList(): Promise<[]> {
+  // TODO：service呼び出し
 
-  return result;
+  return [];
 }
 
 /**
@@ -17,7 +18,7 @@ export async function fetchMemberList(): Promise<Member[]> {
  * 特定のidのメンバー情報取得のQuery
  */
 export async function fetchMemberInfoById(id: string): Promise<Member | null> {
-  const result = await MemberService.fetchMemberInfoById(id);
+  // TODO：service呼び出し
 
-  return result;
+  return null;
 }
