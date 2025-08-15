@@ -6,7 +6,7 @@ interface MemberDetailContainerProps {
 }
 
 export const MemberDetailContainer = ({ id }: MemberDetailContainerProps) => {
-  const { data, error } = useFetchMemberInfoByIdQuery({
+  const { data, loading, error } = useFetchMemberInfoByIdQuery({
     variables: {
       id,
     },
@@ -14,6 +14,10 @@ export const MemberDetailContainer = ({ id }: MemberDetailContainerProps) => {
 
   if (error) {
     throw error.message;
+  }
+
+  if (loading) {
+    return <p>Loading...</p>;
   }
 
   return <MemberDetailPresenter member={data?.fetchMemberInfoById} />;
