@@ -60,14 +60,14 @@ export type QueryFetchMemberInfoByIdArgs = {
   id: Scalars['String']['input'];
 };
 
-export type FetchMemberListQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type FetchMemberListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FetchMemberListQueryQuery = { __typename?: 'Query', fetchMemberList: Array<{ __typename?: 'Member', id: string, name: string } | null> };
+export type FetchMemberListQuery = { __typename?: 'Query', fetchMemberList: Array<{ __typename?: 'Member', id: string, name: string } | null> };
 
 
-export const FetchMemberListQueryDocument = gql`
-    query FetchMemberListQuery {
+export const FetchMemberListDocument = gql`
+    query FetchMemberList {
   fetchMemberList {
     id
     name
@@ -76,33 +76,33 @@ export const FetchMemberListQueryDocument = gql`
     `;
 
 /**
- * __useFetchMemberListQueryQuery__
+ * __useFetchMemberListQuery__
  *
- * To run a query within a React component, call `useFetchMemberListQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useFetchMemberListQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useFetchMemberListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFetchMemberListQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useFetchMemberListQueryQuery({
+ * const { data, loading, error } = useFetchMemberListQuery({
  *   variables: {
  *   },
  * });
  */
-export function useFetchMemberListQueryQuery(baseOptions?: Apollo.QueryHookOptions<FetchMemberListQueryQuery, FetchMemberListQueryQueryVariables>) {
+export function useFetchMemberListQuery(baseOptions?: Apollo.QueryHookOptions<FetchMemberListQuery, FetchMemberListQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<FetchMemberListQueryQuery, FetchMemberListQueryQueryVariables>(FetchMemberListQueryDocument, options);
+        return Apollo.useQuery<FetchMemberListQuery, FetchMemberListQueryVariables>(FetchMemberListDocument, options);
       }
-export function useFetchMemberListQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FetchMemberListQueryQuery, FetchMemberListQueryQueryVariables>) {
+export function useFetchMemberListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FetchMemberListQuery, FetchMemberListQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<FetchMemberListQueryQuery, FetchMemberListQueryQueryVariables>(FetchMemberListQueryDocument, options);
+          return Apollo.useLazyQuery<FetchMemberListQuery, FetchMemberListQueryVariables>(FetchMemberListDocument, options);
         }
-export function useFetchMemberListQuerySuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<FetchMemberListQueryQuery, FetchMemberListQueryQueryVariables>) {
+export function useFetchMemberListSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<FetchMemberListQuery, FetchMemberListQueryVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<FetchMemberListQueryQuery, FetchMemberListQueryQueryVariables>(FetchMemberListQueryDocument, options);
+          return Apollo.useSuspenseQuery<FetchMemberListQuery, FetchMemberListQueryVariables>(FetchMemberListDocument, options);
         }
-export type FetchMemberListQueryQueryHookResult = ReturnType<typeof useFetchMemberListQueryQuery>;
-export type FetchMemberListQueryLazyQueryHookResult = ReturnType<typeof useFetchMemberListQueryLazyQuery>;
-export type FetchMemberListQuerySuspenseQueryHookResult = ReturnType<typeof useFetchMemberListQuerySuspenseQuery>;
-export type FetchMemberListQueryQueryResult = Apollo.QueryResult<FetchMemberListQueryQuery, FetchMemberListQueryQueryVariables>;
+export type FetchMemberListQueryHookResult = ReturnType<typeof useFetchMemberListQuery>;
+export type FetchMemberListLazyQueryHookResult = ReturnType<typeof useFetchMemberListLazyQuery>;
+export type FetchMemberListSuspenseQueryHookResult = ReturnType<typeof useFetchMemberListSuspenseQuery>;
+export type FetchMemberListQueryResult = Apollo.QueryResult<FetchMemberListQuery, FetchMemberListQueryVariables>;

@@ -11,7 +11,7 @@ type Member {
 }
 
 # メンバー一覧取得のQueryを呼ぶ
-query FetchMemberListQuery {
+query FetchMemberList {
   fetchMemberList {
     id
     name
