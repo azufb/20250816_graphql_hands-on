@@ -1,15 +1,20 @@
 import styled from "styled-components";
-import type { FetchMemberListQuery } from "../../../gql/generated/graphql";
 
 interface MemberListPresenterProps {
-  memberList: FetchMemberListQuery["fetchMemberList"];
+  // memberList: FetchMemberListQuery["fetchMemberList"];
   onClickRow: (id: string) => void;
 }
 
 export const MemberListPresenter = ({
-  memberList,
   onClickRow,
 }: MemberListPresenterProps) => {
+  // TODO：後で消す
+  const memberList = [
+    {
+      id: "1",
+      name: "hanako",
+    },
+  ];
   return (
     <TableWrapper>
       <Table>

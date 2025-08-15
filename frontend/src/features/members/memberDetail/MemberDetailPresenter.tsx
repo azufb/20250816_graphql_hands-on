@@ -1,13 +1,16 @@
 import styled from "styled-components";
-import type { FetchMemberInfoByIdQuery } from "../../../gql/generated/graphql";
 
 interface MemberDetailPresenterProps {
-  member: FetchMemberInfoByIdQuery["fetchMemberInfoById"];
+  // member: FetchMemberInfoByIdQuery["fetchMemberInfoById"];
 }
 
-export const MemberDetailPresenter = ({
-  member,
-}: MemberDetailPresenterProps) => {
+export const MemberDetailPresenter = ({}: MemberDetailPresenterProps) => {
+  // TODO：後で消す
+  const member = {
+    name: "hanako",
+    age: 27,
+    comment: "Hello!",
+  };
   const memberName = member?.name ?? "NoName";
 
   return (
