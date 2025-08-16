@@ -2,8 +2,5 @@
 
 # メンバー詳細取得のQueryを呼ぶ
 # query FetchMemberInfoById($id: String!) {
-#   fetchMemberInfoById(id: $id) {
-#     name
-#     age
-#   }
+  # TODO：後で実装
 # }

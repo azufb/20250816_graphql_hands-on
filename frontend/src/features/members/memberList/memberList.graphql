@@ -2,8 +2,5 @@
 
 # メンバー一覧取得のQueryを呼ぶ
 # query FetchMemberList {
-#   fetchMemberList {
-#     id
-#     name
-#   }
+#   # TODO：後で実装
 # }
