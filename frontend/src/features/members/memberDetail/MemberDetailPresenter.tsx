@@ -34,6 +34,15 @@ export const MemberDetailPresenter = ({}: MemberDetailPresenterProps) => {
               <ProfileInfoLabel>●コメント</ProfileInfoLabel>
               <ProfileInfoData>{member.comment}</ProfileInfoData>
             </ProfileInfoRow>
+
+            {/* <ProfileInfoRow>
+              <ProfileInfoLabel>●好きなもの</ProfileInfoLabel>
+              {member.favorite.map((fav) => (
+                <ul>
+                  <li><ProfileInfoData>{fav}</ProfileInfoData></li>
+                </ul>
+              ))}
+            </ProfileInfoRow> */}
           </ProfileInfo>
         ) : (
           <NotFoundProfile>プロフィール情報がありません</NotFoundProfile>
