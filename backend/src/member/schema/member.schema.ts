@@ -23,5 +23,7 @@ export const memberTypeDefs = `#graphql
 
   type Query {
     hello: String!
+    # Query名: 返り値の型
+    # Query名(引数名: 引数の型)： 返り値の型
   }
 `;
