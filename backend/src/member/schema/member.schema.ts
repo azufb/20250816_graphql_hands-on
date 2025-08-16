@@ -23,7 +23,5 @@ export const memberTypeDefs = `#graphql
 
   type Query {
     hello: String!
-    # fetchMemberList: [Member!]!
-    # fetchMemberInfoById(id: String!): Member
   }
 `;
