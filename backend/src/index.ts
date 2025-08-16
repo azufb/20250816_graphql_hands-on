@@ -6,7 +6,7 @@ import { memberTypeDefs } from "./member/schema/member.schema";
 import { memberResolvers } from "./member/resolvers/index.resolver";
 
 const app = express();
-const port = 6000;
+const port = 3001;
 
 app.use(cors());
 app.use(express.json());
